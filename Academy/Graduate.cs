@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Academy
 {
-	internal class Graduate:Student
+	class Graduate : Student
 	{
 		public string Subject { get; set; }
 		public Graduate
@@ -21,7 +21,8 @@ namespace Academy
 		}
 		public Graduate(Student student, string subject) : base(student)
 		{
-
+			Subject = subject;
+			Console.WriteLine($"GConstructor:\t{GetHashCode()}");
 		}
 		~Graduate()
 		{
@@ -30,8 +31,8 @@ namespace Academy
 		public override void Info()
 		{
 			base.Info();
-            Console.WriteLine(Subject);
-        }
+			Console.WriteLine(Subject);
+		}
 		public override string ToString()
 		{
 			return base.ToString() + Subject;

@@ -6,30 +6,30 @@ using System.Threading.Tasks;
 
 namespace Academy
 {
-	internal class Teacher:Human
+	class Teacher : Human
 	{
-		public string Speciality {  get; set; }
+		public string Speciality { get; set; }
 		public int Experience { get; set; }
 		public Teacher
 			(
 				string lastName, string firstName, int age,
 				string speciality, int experience
-			) : base( lastName, firstName, age )
+			) : base(lastName, firstName, age)
 		{
 			Speciality = speciality;
 			Experience = experience;
-            Console.WriteLine($"TConstructor:\t{GetHashCode()}");
-        }
+			Console.WriteLine($"TConstructor:\t{GetHashCode()}");
+		}
 		public Teacher(Human human, string speciality, int experience) : base(human)
 		{
 			Speciality = speciality;
 			Experience = experience;
-            Console.WriteLine($"TConstructor:\t{GetHashCode()}");
+			Console.WriteLine($"TConstructor:\t{GetHashCode()}");
 		}
-		~Teacher() 
+		~Teacher()
 		{
-            Console.WriteLine($"TDestructor:\t{GetHashCode()}");
-        }
+			Console.WriteLine($"TDestructor:\t{GetHashCode()}");
+		}
 		public override void Info()
 		{
 			base.Info();
@@ -37,7 +37,7 @@ namespace Academy
 		}
 		public override string ToString()
 		{
-			return base.ToString() + $"{Speciality.ToString().PadRight(24)}{Experience.ToString().PadRight(5)}";
+			return base.ToString() + $"{Speciality.PadRight(24)}{Experience.ToString().PadRight(5)}";
 		}
 		public override string ToStringCSV()
 		{

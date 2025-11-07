@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Academy
 {
-	internal class Student:Human
+	class Student : Human
 	{
 		public string Speciality { get; set; }
 		public string Group { get; set; }
@@ -19,15 +19,15 @@ namespace Academy
 			) : base(lastName, firstName, age)
 		{
 			Init(speciality, group, rating, attendance);
-            Console.WriteLine($"SConstructor:\t{GetHashCode()}");
-        }
+			Console.WriteLine($"SConstructor:\t{GetHashCode()}");
+		}
 		public Student
 			(
-			Human human, 
+			Human human,
 			string speciality, string group, double rating, double attendance
 			) : base(human)
 		{
-			Init(speciality , group, rating, attendance);
+			Init(speciality, group, rating, attendance);
 			Console.WriteLine($"SConstructor:\t{GetHashCode()}");
 		}
 		public Student(Student other) : base(other)
@@ -35,7 +35,7 @@ namespace Academy
 			Init(other.Speciality, other.Group, other.Rating, other.Attendance);
 			Console.WriteLine($"SConstructor:\t{GetHashCode()}");
 		}
-		~Student() 
+		~Student()
 		{
 			Console.WriteLine($"SDestructor:\t{GetHashCode()}");
 		}
@@ -50,10 +50,12 @@ namespace Academy
 		{
 			base.Info();
 			Console.WriteLine($"{Speciality} {Group} {Rating} {Attendance}");
-        }
+		}
 		public override string ToString()
 		{
-			return base.ToString()+$"{Speciality.PadRight(24)}{Group.PadRight(8)}{Rating.ToString().PadRight(8)}{Attendance.ToString().PadRight(8)}";
+			return
+base.ToString() +
+$"{Speciality.PadRight(24)}{Group.PadRight(8)}{Rating.ToString().PadRight(8)}{Attendance.ToString().PadRight(8)}";
 		}
 		public override string ToStringCSV()
 		{
