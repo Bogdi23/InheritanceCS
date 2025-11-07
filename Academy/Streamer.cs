@@ -7,17 +7,17 @@ using System.IO;
 
 namespace Academy
 {
-	internal class Streamer
+	class Streamer
 	{
 		void SetDirectory()
 		{
-            Console.WriteLine(Directory.GetCurrentDirectory());
-            string location = System.Windows.Forms.Application.ExecutablePath;
-            Console.WriteLine(Directory.GetCurrentDirectory());
+			Console.WriteLine(Directory.GetCurrentDirectory());
+			string location = System.Windows.Forms.Application.ExecutablePath;
+			Console.WriteLine(location);
 			Directory.SetCurrentDirectory($"{location}\\..\\..\\..");
-            Console.WriteLine(Directory.GetCurrentDirectory());
+			Console.WriteLine(Directory.GetCurrentDirectory());
 		}
-		static readonly string delimiter = "\n--------------------------------------------\n";
+		static readonly string delimiter = "\n-----------------------------------\n";
 		public void Print(Human[] group)
 		{
 			for (int i = 0; i < group.Length; i++)
@@ -26,7 +26,6 @@ namespace Academy
 				Console.WriteLine(delimiter);
 			}
 			Console.WriteLine();
-
 		}
 		public void Save(Human[] group, string filename)
 		{
@@ -41,6 +40,7 @@ namespace Academy
 			writer.Close();
 			System.Diagnostics.Process.Start("notepad", filename);
 		}
+
 		public Human[] Load(string filename)
 		{
 			SetDirectory();
