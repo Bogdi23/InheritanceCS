@@ -11,6 +11,7 @@ namespace AbstractGeometry
 {
 	class Program
 	{
+		static readonly string delimiter = "\n--------------------------\n";
 		static void Main(string[] args)
 		{
 			IntPtr hwnd = GetConsoleWindow();
@@ -25,7 +26,14 @@ namespace AbstractGeometry
 
 			Rectangle rectangle = new Rectangle(100, 40, 300, 50, 3, Color.AliceBlue);
 			rectangle.Info(e);
-		}
+            Console.WriteLine(delimiter);
+
+            Square square = new Square(50, 500, 100, 4, Color.Green);
+			square.Info(e);
+            Console.WriteLine(delimiter);
+
+
+        }
 		[DllImport("kernel32.dll")]
 		public static extern IntPtr GetConsoleWindow();
 	}
