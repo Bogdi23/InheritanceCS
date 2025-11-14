@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace AbstractGeometry
 {
-	class Rectangle : Shape
+	class Rectangle : Shape, IHaveDiagonal
 	{
 		double width;
 		double height;

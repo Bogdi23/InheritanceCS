@@ -8,7 +8,7 @@ using System.Drawing;
 
 namespace AbstractGeometry
 {
-	internal class IsoscalesTriangle : Triangle
+	internal class IsoscalesTriangle : Triangle, IHaveHeight
 	{
 		double @base; //'base' - это ключевое слово, означающее Базовый класс. Ключевые слова нельзя использовать для именования своих сущностей
 					  //но, если перед ключевым словом поставить собаку, то его можно использовать для именования своих сущностей
@@ -55,11 +55,25 @@ namespace AbstractGeometry
 			};
 			e.Graphics.DrawPolygon(pen, vertices);
 		}
+		public void DrawHeight(System.Windows.Forms.PaintEventArgs e)
+		{
+			Pen pen = new Pen(Color, 1);
+			e.Graphics.DrawLine
+				(
+				pen,
+				StartX + (float)(@base / 2),
+				StartY,
+				StartX + (float)(@base / 2),
+				StartY + (float)GetHeight()
+				);
+		}
 		public override void Info(PaintEventArgs e)
 		{
             Console.WriteLine($"Основание: {Base}");
             Console.WriteLine($"Сторона: {Side}");
+            Console.WriteLine($"Высота: {GetHeight()}");
             base.Info(e);
+			DrawHeight(e);
 		}
 	}
 }
